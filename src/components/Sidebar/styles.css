@@ -57,15 +57,16 @@ p {
   height: 35%;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  min-width: max-content;
 }
 
 .sidebar__link {
+  width: 100%;
   padding: 10px 15px;
   font-size: 18px;
   display: flex;
   gap: 10px;
-  width: 100%;
+  min-width: max-content;
   border-radius: 8px;
 }
 

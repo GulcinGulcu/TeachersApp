@@ -43,11 +43,6 @@ export const Report = () => {
             </Card>
           );
         })}
-        <div className='home__report-empty'>
-          <span>
-            <GoPlus />
-          </span>
-        </div>
       </div>
     </section>
   );

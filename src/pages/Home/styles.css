@@ -76,7 +76,7 @@
 
 .wave-svg {
   position: absolute;
-  bottom: -5px;
+  bottom: -10px;
   left: -2rem;
   right: -5px;
   border-bottom: none;
@@ -93,6 +93,7 @@
 .upper-wave-svg {
   z-index: 5;
   right: -10px;
+ 
 }
 
 .upper-wave-svg,
@@ -177,6 +178,7 @@ h2 {
 }
 
 .home__report-card {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -221,16 +223,6 @@ h2 {
 
 .home__report-title {
   font-size: 18px;
-}
-
-.home__report-empty {
-  border: 3px dashed #480ca8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  min-width: 170px;
-  border-radius: 12px;
 }
 
 .home__report-empty > span {
