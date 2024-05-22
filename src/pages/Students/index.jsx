@@ -24,7 +24,11 @@ export const StudentList = () => {
           {studentData.map((student) => (
             <tr key={student.id} className='student-table-tr'>
               <td className='student-name-and-image'>
-                <img src={student.image} className='student-table-img' />
+                <img
+                  src={student.image}
+                  className='student-table-img'
+                  alt='student'
+                />
                 <div>
                   <span>
                     {student.firstName} {student.lastName}

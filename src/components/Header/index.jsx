@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatISO } from 'date-fns';
 import { Switch, FormControlLabel } from '@mui/material';
@@ -10,6 +11,7 @@ export const Header = () => {
   const dispatch = useDispatch();
   const date = formatISO(new Date(), { representation: 'date' });
   const { isDarkMode } = useSelector((state) => state.darkMode);
+  const { pathname } = useLocation();
 
   return (
     <header
@@ -17,26 +19,36 @@ export const Header = () => {
         isLoggedIn ? 'home__header' : 'home__header home__header--logout'
       }
     >
-      <div className='home__date-area'>
-        <h4>Dashboard</h4>
-        <p>{date}</p>
-      </div>
-      <div className='home__header-btns'>
-        <FormControlLabel
-          label='Dark mode'
-          control={
-            <Switch
-              checked={isDarkMode}
-              onChange={() => dispatch(toggleDarkMode())}
-            />
-          }
-        />
+      {pathname === '/' && isLoggedIn && (
+        <div className='home__date-area'>
+          <h4>Dashboard</h4>
+          <p>{date}</p>
+        </div>
+      )}
+      <div
+        className={
+          isLoggedIn
+            ? 'home__header-btns'
+            : 'home__header-btns home__header-btns-logout'
+        }
+      >
         {isLoggedIn ? (
-          <NavLink to='addStudent' className='home__header-link'>
-            + Add Student
-          </NavLink>
+          <>
+            <FormControlLabel
+              label='Dark mode'
+              control={
+                <Switch
+                  checked={isDarkMode}
+                  onChange={() => dispatch(toggleDarkMode())}
+                />
+              }
+            />
+            <NavLink to='addStudent' className='home__header-link'>
+              + Add Student
+            </NavLink>
+          </>
         ) : (
-          <NavLink to='login' className='home__header-link'>
+          <NavLink to='login' className='home__header-link header-login-link'>
             Log In
           </NavLink>
         )}

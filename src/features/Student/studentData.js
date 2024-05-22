@@ -1,8 +1,8 @@
-import studentOne from './../../Assets/StudentPhotos/student.jpg';
-import studentTwo from './../../Assets/StudentPhotos/student2.jpg';
-import studentThree from './../../Assets/StudentPhotos/student3.jpg';
-import studentFour from './../../Assets/StudentPhotos/student4.jpg';
-import studentFive from './../../Assets/StudentPhotos/student5.jpg';
+import studentOne from './../../assets/StudentPhotos/student.jpg';
+import studentTwo from './../../assets/StudentPhotos/student2.jpg';
+import studentThree from './../../assets/StudentPhotos/student3.jpg';
+import studentFour from './../../assets/StudentPhotos/student4.jpg';
+import studentFive from './../../assets/StudentPhotos/student5.jpg';
 
 export const studentData = [
   {

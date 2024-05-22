@@ -36,7 +36,7 @@ export const Lessons = () => {
           .catch((err) => console.log(err));
       }
     }
-  }, [queryParam, nextPage]);
+  }, [queryParam, nextPage, nextPageTkn]);
 
   const handleClick = (e, id) => {
     setActive(id);

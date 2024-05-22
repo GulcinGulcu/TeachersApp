@@ -1,21 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home } from './Pages/Home';
-import { Layout } from './Components/Layout/Layout';
-import { Lessons } from './Pages/Lessons';
-import { Whiteboard } from './Pages/Whiteboard';
-import { Classroom } from './Pages/Classroom';
-import { AuthRequired } from './Components/AuthRequired';
-import { StudentList } from './Pages/Students';
-import { StudentDetail } from './Pages/Students/StudentDetails/StudentDetail';
-import { Login } from './Pages/Login';
+import { Home } from './pages/Home';
+import { Layout } from './components/Layout/Layout';
+import { Lessons } from './pages/Lessons';
+import { Whiteboard } from './pages/Whiteboard';
+import { Classroom } from './pages/Classroom';
+import { AuthRequired } from './components/AuthRequired';
+import { StudentList } from './pages/Students';
+import { StudentDetail } from './pages/Students/StudentDetails/StudentDetail';
+import { Login } from './pages/Login';
 import './App.css';
-import { SavedVideos } from './Pages/Lessons/SavedVideos';
-import { Videos } from './Pages/Lessons/Videos';
-import { GeneralInformation } from './Pages/Students/StudentDetails/GeneralInformation';
-import { Grades } from './Pages/Students/StudentDetails/Grades';
-import { OtherInfo } from './Pages/Students/StudentDetails/OtherInfo';
-import { Registration } from './Pages/Registration';
-import { AddStudent } from './Pages/AddStudent';
+import { SavedVideos } from './pages/Lessons/SavedVideos';
+import { Videos } from './pages/Lessons/Videos';
+import { GeneralInformation } from './pages/Students/StudentDetails/GeneralInformation';
+import { Grades } from './pages/Students/StudentDetails/Grades';
+import { OtherInfo } from './pages/Students/StudentDetails/OtherInfo';
+import { Registration } from './pages/Registration';
+import { AddStudent } from './pages/AddStudent';
 
 function App() {
   return (

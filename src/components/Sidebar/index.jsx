@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoIosLogOut, IoIosLogIn } from 'react-icons/io';
 import { logout } from '../../features/User/userSlice';
 import { Link } from 'react-router-dom';
-import Logo from '../../Assets/logo.png';
+import Logo from '../../assets/logo.png';
 import './styles.css';
 
 export const SideBar = () => {

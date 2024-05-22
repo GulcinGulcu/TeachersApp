@@ -10,7 +10,7 @@ export const StudentDetail = () => {
   useEffect(() => {
     const student = studentData.filter((student) => student.id === id);
     setStudentDetail(student[0]);
-  }, [id]);
+  }, [id, studentData]);
 
   const activeStyles = {
     backgroundColor: 'var(--color-lightModeSecondary)',
@@ -25,7 +25,11 @@ export const StudentDetail = () => {
       {studentDetail && (
         <div className='detail-container'>
           <section className='avatar-container'>
-            <img src={studentDetail.image} className='student-img' />
+            <img
+              src={studentDetail.image}
+              className='student-img'
+              alt='student'
+            />
           </section>
           <nav>
             <NavLink

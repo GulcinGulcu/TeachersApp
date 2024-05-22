@@ -102,7 +102,7 @@ export const Home = () => {
       ) : (
         <>
           <section className='welcome-board'>
-            <img src={TeacherImage}></img>
+            <img src={TeacherImage} alt='teacher'></img>
             <div>
               <h2>
                 <span>Welcome, </span> {user.fullName}!{' '}

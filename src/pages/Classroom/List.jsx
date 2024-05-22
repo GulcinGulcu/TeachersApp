@@ -24,7 +24,7 @@ export const List = ({ list, handleDelete, typeFilter }) => {
   useEffect(() => {
     setEditedItem(itemList[0]?.content);
     inputElement.current?.focus();
-  }, [editItemId]);
+  }, [editItemId, itemList]);
 
   const handleEdit = (id) => {
     dispatch(editItem({ id, editedItem }));
