@@ -1,0 +1,46 @@
+:root {
+  --color-primary: #457b9d;
+  --color-primaryActive: #065661;
+  --color-darkModePrimary: #01161e;
+  --color-darkModeSecondary: #0d2129;
+  --color-darkModeLight: #f5f5f7;
+  --color-lightModePrimary: #f5f2ec;
+  --color-lightModeWhite: #fff;
+  --color-lightModeDark: #191919;
+  --color-lightModeSecondary: #d0d5d8;
+  --color-orange: #f77f00;
+  --color-hover: #054d57;
+  --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  min-width: 48px;
+  cursor: pointer;
+}

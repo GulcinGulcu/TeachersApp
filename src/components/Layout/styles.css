@@ -1,0 +1,31 @@
+.page-container {
+  min-height: 100%;
+  padding-left: 22%;
+  background-color: var(--color-lightModePrimary);
+  color: var(--lightModeDark);
+  padding-bottom: 15px;
+}
+
+.page-container.dark {
+  background-color: var(--color-darkModePrimary);
+  color: #fff;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media all and (max-width: 768px) {
+  .page-container {
+    padding-left: 18%;
+  }
+}
+
+@media all and (max-width: 481px) {
+  .page-container {
+    padding-left: 0;
+    padding-top: 5%;
+    padding-bottom: 22%;
+  }
+}

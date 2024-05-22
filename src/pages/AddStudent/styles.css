@@ -1,0 +1,29 @@
+.add-student-form {
+  width: 80%;
+}
+
+.add-student-input-area {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.add-student-input {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.grades {
+  text-decoration: underline;
+}
+
+.add-student-btn {
+  width: 35%;
+}
+
+@media all and (max-width: 768px) {
+  .add-student-form {
+    width: 95%;
+  }
+}

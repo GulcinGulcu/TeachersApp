@@ -1,0 +1,38 @@
+.home__header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+  margin: auto;
+}
+
+.home__header-link {
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: #457b9d;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+}
+
+@media all and (max-width: 481px) {
+  .home__header {
+    padding: 5px 0;
+    align-items: center;
+  }
+  .home__header-btns {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .home__header-link {
+    font-size: 14px;
+  }
+
+  .home__date-area {
+    font-size: 14px;
+  }
+
+  .home__header--logout {
+    display: none;
+  }
+}

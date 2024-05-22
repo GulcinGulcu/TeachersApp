@@ -1,0 +1,58 @@
+.canvas-wrapper {
+  max-width: calc(900px + 1rem);
+  width: 95%;
+  margin: auto;
+  border: 0.5rem solid gray;
+  border-radius: 8px;
+}
+
+.canvas__toolkit {
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.canvas__pen {
+  flex: 1;
+}
+
+.canvas__pen,
+.canvas__pen-color,
+.canvas__btns {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.canvas__btns {
+  width: 50%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.canvas__btns > button {
+  width: max-content;
+  border: 1px solid #ccd5ae;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-darkModeSecondary);
+  color: var(--color-lightModeWhite);
+  box-shadow: var(--box-shadow);
+}
+
+@media all and (max-width: 768px) {
+  .canvas__btns {
+    width: 40%;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .canvas__btns > button {
+    font-size: 14px;
+  }
+}

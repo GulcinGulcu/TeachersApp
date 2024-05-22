@@ -1,0 +1,76 @@
+.detail-container {
+  margin: auto;
+}
+
+.detail-container > nav {
+  display: flex;
+  max-width: 950px;
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
+.student-detail {
+  max-width: 950px;
+  margin: auto;
+  background-color: var(--color-lightModeSecondary);
+  color: #000;
+  padding: 2rem 1rem;
+  border-radius: 0 3rem 3rem 3rem;
+  box-shadow: var(--box-shadow);
+}
+
+.student-detail-grades {
+  border-radius: 3rem;
+}
+
+.student-detail-other {
+  border-radius: 3rem 0 3rem 3rem;
+}
+
+.student-detail__link {
+  font-size: 22px;
+  flex: 1;
+  padding: 15px;
+  border-radius: 3rem 3rem 0 0;
+  transition: scale 0.3s;
+}
+
+.student-detail__link:hover {
+  scale: 1.1;
+  color: var(--color-primary);
+}
+
+.student-detail-item {
+  font-size: 22px;
+  padding: 8px;
+  border-bottom: 1px solid gray;
+}
+
+.student-img {
+  display: block;
+  max-width: 200px;
+  margin: auto;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+@media all and (max-width: 786px) {
+  .student-img {
+    max-width: 150px;
+  }
+
+  .detail-container {
+    width: 90%;
+  }
+}
+
+@media all and (max-width: 481px) {
+  .student-detail__link {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+}
