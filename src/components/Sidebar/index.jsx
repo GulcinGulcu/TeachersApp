@@ -13,7 +13,7 @@ export const SideBar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div
+    <aside
       className={
         isLoggedIn
           ? 'sidebar-wrapper'
@@ -53,6 +53,6 @@ export const SideBar = () => {
           <IoIosLogIn className='sidebar__logout-icon' />
         </Link>
       )}
-    </div>
+    </aside>
   );
 };
