@@ -93,7 +93,6 @@
 .upper-wave-svg {
   z-index: 5;
   right: -10px;
- 
 }
 
 .upper-wave-svg,
@@ -273,7 +272,6 @@ h2 {
   border-radius: 8px;
   align-self: flex-end;
   flex-basis: 80px;
-
 }
 
 @media all and (max-width: 768px) {
@@ -357,5 +355,12 @@ h2 {
 
   .home__report-cards {
     justify-content: center;
+  }
+
+  .home-page-wrapper--inside:hover > .wave-svg,
+  .home-page-wrapper--inside:hover > .wave-svg--transparent,
+  .home-page-wrapper--inside:hover > .upper-wave-svg,
+  .home-page-wrapper--inside:hover > .upper-wave-svg--transparent {
+    transform: none;
   }
 }
