@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const userLoggedIn = {
-  isLoggedIn: true,
+  isLoggedIn: false,
   username: '',
   fullName: '',
   email: '',
