@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <header
       className={
-        isLoggedIn && pathname === '/'
+        !isLoggedIn && pathname === '/'
           ? 'home__header home__header--logout'
           : 'home__header'
       }
