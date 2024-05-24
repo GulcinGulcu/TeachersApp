@@ -32,6 +32,7 @@ export const AddStudent = () => {
       addActivity({
         id: id,
         title: 'New student is added',
+        content: `Name: ${finalData.firstName} ${finalData.lastName}`,
         date: new Date().toISOString(),
         to: 'student',
       }),

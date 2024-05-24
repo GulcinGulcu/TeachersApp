@@ -7,15 +7,11 @@ import { SlArrowDown } from 'react-icons/sl';
 
 export const RecentActivities = () => {
   const recentActivities = useSelector((state) => state.recentActivities);
-  const list = useSelector((state) => state.list);
   const { isDarkMode } = useSelector((state) => state.darkMode);
   const [active, setActive] = useState(false);
-  const [activityToShow, setActivityToShow] = useState('');
   const [activeId, setActiveId] = useState(null);
 
   const handleClick = (id) => {
-    const selectedActivity = list.filter((item) => item.id === id);
-    setActivityToShow(selectedActivity[0].content);
     setActiveId(id);
     setActive((prev) => !prev);
   };
@@ -37,24 +33,33 @@ export const RecentActivities = () => {
                 className='home__recent-activities__list-item'
                 key={activity.id}
               >
-                <span>
-                  {active && activeId === activity.id ? (
-                    <SlArrowDown />
-                  ) : (
-                    <SlArrowRight />
+                <div className='list-item-activity'>
+                  <span>
+                    {active && activeId === activity.id ? (
+                      <SlArrowDown />
+                    ) : (
+                      <SlArrowRight />
+                    )}
+                    {activity.title}
+                  </span>
+                  <span>
+                    <IoIosTimer /> <TimeAgo time={activity.date} />
+                  </span>
+                </div>
+                <div>
+                  {activity.to && (
+                    <button
+                      className='details-btn'
+                      onClick={() => handleClick(activity.id)}
+                    >
+                      Click here for details
+                    </button>
                   )}
-                  {activity.title} <IoIosTimer />{' '}
-                  <TimeAgo time={activity.date} />
-                </span>
-                {activity.to && (
-                  <button onClick={() => handleClick(activity.id)}>
-                    Click here for details
-                  </button>
-                )}
+                </div>
               </li>
               {active && activeId === activity.id && (
                 <div>
-                  <p>"{activityToShow}"</p>
+                  <p>"{activity.content}"</p>
                 </div>
               )}
             </>

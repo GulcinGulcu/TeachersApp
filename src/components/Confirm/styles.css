@@ -42,3 +42,9 @@
 .confirm__link:hover {
   background-color: var(--color-hover);
 }
+
+@media all and (max-width: 786px) {
+  .confirm {
+    width: 90%;
+  }
+}

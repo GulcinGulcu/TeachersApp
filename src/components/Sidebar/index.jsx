@@ -4,30 +4,23 @@ import { SideBarListItem } from './SideBarListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { IoIosLogOut, IoIosLogIn } from 'react-icons/io';
 import { logout } from '../../features/User/userSlice';
-import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo.png';
+import { Link, useLocation } from 'react-router-dom';
 import './styles.css';
 
 export const SideBar = () => {
   const { username, isLoggedIn } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
   return (
     <aside
       className={
-        isLoggedIn
-          ? 'sidebar-wrapper'
-          : 'sidebar-wrapper sidebar-wrapper--logout'
+        !isLoggedIn && pathname === '/'
+          ? 'sidebar-wrapper sidebar-wrapper--logout'
+          : 'sidebar-wrapper'
       }
     >
-      {isLoggedIn ? (
-        <UserInfo username={username} />
-      ) : (
-        <div className='sidebar__img-wrapper'>
-          <img src={Logo} alt='logo' className='logo' />
-          <hr />
-        </div>
-      )}
+      <UserInfo username={username} />
       <ul className='sidebar__links'>
         {sideBarData.map((item) => (
           <SideBarListItem

@@ -32,3 +32,11 @@
 .login-form > p {
   font-size: 14px;
 }
+
+@media all and (max-width: 768px) {
+  .login-form{
+    width: 95%;
+    min-width: min-content;
+    margin-top: 15px;
+  }
+}

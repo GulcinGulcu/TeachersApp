@@ -34,7 +34,7 @@
   box-shadow: var(--box-shadow);
   border-radius: 10px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 80px 1fr auto;
   grid-template-rows: 1fr auto;
   grid-template-areas:
     'top top top'
@@ -61,7 +61,7 @@
 }
 
 .icon {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .select-and-btn-area {
@@ -81,7 +81,7 @@
 }
 
 .classroom__list__delete-btn {
-  color: red;
+  color: #ff0000;
 }
 
 .classroom__list__btn-area {
@@ -112,7 +112,7 @@
 .classroom__filter-btn {
   border: none;
   background-color: transparent;
-  color: var(--color-lightModeWhite);
+  color: inherit;
   font-size: 18px;
   display: flex;
   justify-content: center;
@@ -120,7 +120,9 @@
   gap: 5px;
 }
 
+
 .classroom__timeline {
+  margin-top: 3rem;
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
@@ -132,6 +134,7 @@
 
 .classroom__filter {
   display: flex;
+  flex-direction: column;
 }
 
 .classroom__clear-filter-btn {
@@ -191,4 +194,9 @@
     text-align: left;
     font-size: 12px;
   }
+
+  .icon {
+    font-size: 30px;
+  }
+
 }

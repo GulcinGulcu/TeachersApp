@@ -4,7 +4,6 @@
   justify-content: space-between;
   padding: 25px 0;
   margin: auto;
-  position: relative;
 }
 
 .home__header-link {
@@ -17,7 +16,7 @@
 }
 
 .home__header-btns-logout {
-  position: absolute;
+  position: relative;
   right: 0;
 }
 

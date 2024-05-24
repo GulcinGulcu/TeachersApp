@@ -44,3 +44,10 @@ button {
   min-width: 48px;
   cursor: pointer;
 }
+
+
+h4,
+p {
+  margin: 0;
+}
+

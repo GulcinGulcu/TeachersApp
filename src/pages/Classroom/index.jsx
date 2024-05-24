@@ -39,6 +39,7 @@ export const Classroom = () => {
             ? 'An announcement is shared with your students.'
             : 'An assignment is given to your students.',
         date: new Date().toISOString(),
+        content: data.content,
         to: 'myclassroom',
       }),
     );

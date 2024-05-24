@@ -43,11 +43,11 @@ export const List = ({ list, handleDelete, typeFilter }) => {
             }
             key={item.id}
           >
-            <span className='icon'>
+            <span>
               {item.type === 'Announcement' ? (
-                <TfiAnnouncement className='home__report-icon blue' />
+                <TfiAnnouncement className='icon home__report-icon blue' />
               ) : (
-                <MdOutlineAssignment className='home__report-icon red' />
+                <MdOutlineAssignment className='icon home__report-icon red' />
               )}
             </span>
             {editItemId !== item.id ? (

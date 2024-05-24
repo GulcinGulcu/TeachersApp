@@ -16,15 +16,15 @@ export const Header = () => {
   return (
     <header
       className={
-        isLoggedIn ? 'home__header' : 'home__header home__header--logout'
+        isLoggedIn && pathname === '/'
+          ? 'home__header home__header--logout'
+          : 'home__header'
       }
     >
-      {pathname === '/' && isLoggedIn && (
-        <div className='home__date-area'>
-          <h4>Dashboard</h4>
-          <p>{date}</p>
-        </div>
-      )}
+      <div className='home__date-area'>
+        {pathname === '/' && isLoggedIn && <h4>Dashboard</h4>}
+        {isLoggedIn && <p>{date}</p>}
+      </div>
       <div
         className={
           isLoggedIn

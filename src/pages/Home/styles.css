@@ -253,10 +253,27 @@ h2 {
 .home__recent-activities__list-item {
   display: flex;
   align-items: center;
-  gap: 8px;
   font-size: 18px;
-  width: 75%;
-  justify-content: space-between;
+  width: 100%;
+  gap: 3rem;
+}
+
+.list-item-activity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.details-btn {
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-lightModeWhite);
+  padding: 6px;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  align-self: flex-end;
+  flex-basis: 80px;
+
 }
 
 @media all and (max-width: 768px) {
@@ -327,6 +344,7 @@ h2 {
 
   .home__recent-activities__list-item {
     font-size: 16px;
+    gap: 5px;
   }
 
   .home__report-title {
