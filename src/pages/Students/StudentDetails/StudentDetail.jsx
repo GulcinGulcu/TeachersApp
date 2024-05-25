@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useParams, Outlet } from 'react-router-dom';
+import { NavLink, useParams, Outlet, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { FaArrowLeft } from 'react-icons/fa';
 import './styles.css';
 
 export const StudentDetail = () => {
@@ -24,6 +25,10 @@ export const StudentDetail = () => {
     <>
       {studentDetail && (
         <div className='detail-container'>
+          <Link to='..' relative='path' className='go-back-btn'>
+            <FaArrowLeft />
+            <span>Back to all students</span>
+          </Link>
           <section className='avatar-container'>
             <img
               src={studentDetail.image}

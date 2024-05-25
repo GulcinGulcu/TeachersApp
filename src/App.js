@@ -8,7 +8,6 @@ import { AuthRequired } from './components/AuthRequired';
 import { StudentList } from './pages/Students';
 import { StudentDetail } from './pages/Students/StudentDetails/StudentDetail';
 import { Login } from './pages/Login';
-import './App.css';
 import { SavedVideos } from './pages/Lessons/SavedVideos';
 import { Videos } from './pages/Lessons/Videos';
 import { GeneralInformation } from './pages/Students/StudentDetails/GeneralInformation';
@@ -31,7 +30,7 @@ function App() {
             </Route>
             <Route path='whiteboard' element={<Whiteboard />} />
             <Route path='students' element={<StudentList />} />
-            <Route path='students/:id/details' element={<StudentDetail />}>
+            <Route path='students/:id' element={<StudentDetail />}>
               <Route index element={<GeneralInformation />} />
               <Route path='grades' element={<Grades />} />
               <Route path='other' element={<OtherInfo />} />

@@ -22,6 +22,10 @@ export const GeneralInformation = () => {
             <span>Last Name:</span>
             <span>{selectedStudent[0].lastName}</span>
           </li>
+          <li className='student-detail-item'>
+            <span>Attendance:</span>
+            <span>{selectedStudent[0].attendance}</span>
+          </li>
         </ul>
       )}
     </>

@@ -1,4 +1,5 @@
 import TextField from '@mui/material/TextField';
+import userIcon from '../../assets/usericon.png';
 import { Button } from '../../components/Button';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
@@ -26,13 +27,12 @@ export const AddStudent = () => {
 
   const onFormSubmit = (data) => {
     const id = nanoid();
-    const finalData = { ...data, id: id };
+    const finalData = { ...data, id: id, image: userIcon };
     dispatch(addStudent(finalData));
     dispatch(
       addActivity({
         id: id,
         title: 'New student is added',
-        content: `Name: ${finalData.firstName} ${finalData.lastName}`,
         date: new Date().toISOString(),
         to: 'student',
       }),

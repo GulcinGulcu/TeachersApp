@@ -8,10 +8,23 @@ import { SlArrowDown } from 'react-icons/sl';
 export const RecentActivities = () => {
   const recentActivities = useSelector((state) => state.recentActivities);
   const { isDarkMode } = useSelector((state) => state.darkMode);
+  const students = useSelector((state) => state.student);
+  const list = useSelector((state) => state.list);
   const [active, setActive] = useState(false);
   const [activeId, setActiveId] = useState(null);
+  const [activityToShow, setActivityToShow] = useState('');
 
-  const handleClick = (id) => {
+  const handleClick = (id, to) => {
+    if (to === 'myclassroom') {
+      const selectedActivity = list.filter((item) => item.id === id);
+      setActivityToShow(selectedActivity[0].content);
+    }
+    if (to === 'student') {
+      const selectedActivity = students.filter((student) => student.id === id);
+      setActivityToShow(
+        `Name: ${selectedActivity[0].firstName} ${selectedActivity[0].lastName}`,
+      );
+    }
     setActiveId(id);
     setActive((prev) => !prev);
   };
@@ -50,7 +63,7 @@ export const RecentActivities = () => {
                   {activity.to && (
                     <button
                       className='details-btn'
-                      onClick={() => handleClick(activity.id)}
+                      onClick={() => handleClick(activity.id, activity.to)}
                     >
                       Click here for details
                     </button>
@@ -59,7 +72,7 @@ export const RecentActivities = () => {
               </li>
               {active && activeId === activity.id && (
                 <div>
-                  <p>"{activity.content}"</p>
+                  <p>"{activityToShow}"</p>
                 </div>
               )}
             </>

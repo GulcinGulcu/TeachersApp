@@ -40,7 +40,7 @@ export const StudentList = () => {
               </td>
               <td className='student-table-number'>{student.phoneNumber}</td>
               <td>
-                <Link to={`${student.id}/details`} className='detail-link'>
+                <Link to={student.id} className='detail-link'>
                   See Details
                 </Link>
               </td>
