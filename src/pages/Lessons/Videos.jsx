@@ -2,6 +2,7 @@ import { useOutletContext } from 'react-router-dom';
 import { RxBookmark } from 'react-icons/rx';
 import { FaBookmark } from 'react-icons/fa';
 import { Button } from '../../components/Button';
+import { decode } from 'html-entities';
 import { useSelector } from 'react-redux';
 
 export const Videos = () => {
@@ -33,7 +34,9 @@ export const Videos = () => {
                       src={video.snippet.thumbnails.medium.url}
                       alt='Educational Video'
                     />
-                    <h4 className='video-title'>{video.snippet.title}</h4>
+                    <h4 className='video-title'>
+                      {decode(video.snippet.title)}
+                    </h4>
                   </a>
                   <Button
                     className={
