@@ -1,7 +1,5 @@
 # About the project
 
-Still in progress...
-
 This project is made with React for serving as assistant for teachers. Teacher can share things with students, reach lesson videos, see his/her students' list and information, manage their work by using dashboard like seeing the recent activities or statistics about the overall information.
 
 ## Functionality of the Project
