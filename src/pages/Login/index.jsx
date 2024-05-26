@@ -94,10 +94,15 @@ export const Login = () => {
       {errors.password && (
         <span className='error-message'>{errors.password.message}</span>
       )}
-      {failLogin && <span>Incorrect username or password!</span>}
+      {failLogin && (
+        <span className='fail-login-msg'>Incorrect username or password!</span>
+      )}
       <Button className='form-btn--submit'>Log In</Button>
       <p>
-        Don't have an account? <Link to='/registration'>Sign up</Link>
+        Don't have an account?{' '}
+        <Link to='/registration' className='login__sign-up-link'>
+          Sign up
+        </Link>
       </p>
     </form>
   );

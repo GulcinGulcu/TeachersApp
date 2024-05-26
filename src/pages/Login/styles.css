@@ -33,6 +33,14 @@
   font-size: 14px;
 }
 
+.fail-login-msg {
+  color: #ff0000;
+}
+
+.login__sign-up-link {
+  text-decoration: underline;
+}
+
 @media all and (max-width: 768px) {
   .login-form{
     width: 95%;
