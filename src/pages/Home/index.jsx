@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { textData } from '../../textData';
+import { useState, useEffect } from 'react';
+import { textData } from './onBoardingTextData';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useSelector } from 'react-redux';
@@ -28,6 +28,11 @@ export const Home = () => {
       setIndex(2);
     }
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => handleNextText(), 3000);
+    return () => clearInterval(timer);
+  });
 
   return (
     <div
@@ -85,12 +90,8 @@ export const Home = () => {
             <IoIosArrowBack />
           </button>
           <div className='home__text-container'>
-            {textData[index].map((sentence) => (
-              <>
-                <p className='main-text'>{sentence.mainText}</p>
-                <p className='text'>{sentence.text}</p>
-              </>
-            ))}
+            <p className='main-text'>{textData[index].mainText}</p>
+            <p className='text'>{textData[index].text}</p>
             <div className='home-page__enroll-btn'>
               <Link to='registration'>Enroll Now</Link>
             </div>
