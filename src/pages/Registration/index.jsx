@@ -71,14 +71,17 @@ export const Registration = () => {
         label='E mail'
         variant='standard'
         {...register('email', {
-          required: true,
+          required: {
+            value: true,
+            message: 'Please enter your email',
+          },
           pattern: {
             value: EMAIL_PATTERN,
             message: 'Not valid email format!',
           },
         })}
         error={!!errors.email}
-        helperText={errors.email && 'Please enter your email'}
+        helperText={errors.email?.message}
         InputProps={{
           endAdornment: (
             <InputAdornment position='end'>
