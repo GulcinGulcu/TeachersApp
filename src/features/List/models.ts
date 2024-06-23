@@ -1,4 +1,4 @@
-interface List {
+export interface ListData {
   content: string;
   type: string;
   id: number;
@@ -9,5 +9,5 @@ interface List {
 }
 
 export interface ListSliceState {
-  list: List[];
+  list: ListData[];
 }

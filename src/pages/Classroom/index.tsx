@@ -10,8 +10,10 @@ import {
 } from '../../features/RecentActivities/recentActivitiesSlicer';
 import { Button } from '../../components/Button';
 import { useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
+import { selectorList } from '../../features/List/listSlicer';
+import { ListData } from '../../features/List/models';
 import './styles.css';
 
 export const Classroom = () => {
@@ -20,15 +22,15 @@ export const Classroom = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<ListData>();
 
-  const list = useSelector((state) => state.list);
+  const list = useSelector(selectorList);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const [showFilterLinks, setShowFilterLinks] = useState(false);
   const typeFilter = searchParams.get('type');
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: ListData) => {
     const id = nanoid();
     dispatch(addItem({ ...data, id: id, date: getMonthAndDay() }));
     dispatch(
@@ -45,12 +47,12 @@ export const Classroom = () => {
     reset();
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
     dispatch(deleteItem(id));
     dispatch(deleteActivity(id));
   };
 
-  const handleFilter = (e) => {
+  const handleFilter = (e: React.BaseSyntheticEvent) => {
     setSearchParams({ type: e.target.textContent });
     setShowFilterLinks(false);
   };
@@ -65,8 +67,8 @@ export const Classroom = () => {
           {...register('content', {
             required: 'Please, fill the message area',
           })}
-          rows='4'
-          cols='50'
+          rows={4}
+          cols={50}
           placeholder='Share  with your class...'
         ></textarea>
         <div className='select-and-btn-area'>
@@ -79,7 +81,7 @@ export const Classroom = () => {
             <option value='Assignment'>Assignment</option>
             <option value='Announcement'>Announcement</option>
           </select>
-          <Button type='submit' className='classroom__submit-btn'>
+          <Button className='classroom__submit-btn'>
             Share
           </Button>
         </div>
@@ -114,10 +116,10 @@ export const Classroom = () => {
           {showFilterLinks && (
             <ul>
               <li>
-                <Button onClick={(e) => handleFilter(e)}>Assignment</Button>
+                <Button onClick={(e: React.SyntheticEvent) => handleFilter(e)}>Assignment</Button>
               </li>
               <li>
-                <Button onClick={(e) => handleFilter(e)}>Announcement</Button>
+                <Button onClick={(e: React.SyntheticEvent) => handleFilter(e)}>Announcement</Button>
               </li>
             </ul>
           )}

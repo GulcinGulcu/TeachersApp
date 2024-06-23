@@ -1,7 +1,7 @@
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: (arg: React.SyntheticEvent) => void;
 }
 
 export const Button = ({
