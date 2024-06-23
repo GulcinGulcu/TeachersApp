@@ -4,17 +4,21 @@ import { SlArrowRight } from 'react-icons/sl';
 import { IoIosTimer } from 'react-icons/io';
 import { useState } from 'react';
 import { SlArrowDown } from 'react-icons/sl';
+import { selectorRecentActivities } from '../../features/RecentActivities/recentActivitiesSlicer';
+import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
+import { selectorStudent } from '../../features/Student/studentSlicer';
+import { selectorList } from '../../features/List/listSlicer';
 
 export const RecentActivities = () => {
-  const recentActivities = useSelector((state) => state.recentActivities);
-  const { isDarkMode } = useSelector((state) => state.darkMode);
-  const students = useSelector((state) => state.student);
-  const list = useSelector((state) => state.list);
+  const recentActivities = useSelector(selectorRecentActivities);
+  const { isDarkMode } = useSelector(selectorDarkMode);
+  const students = useSelector(selectorStudent);
+  const list = useSelector(selectorList);
   const [active, setActive] = useState(false);
-  const [activeId, setActiveId] = useState(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
   const [activityToShow, setActivityToShow] = useState('');
 
-  const handleClick = (id, to) => {
+  const handleClick = (id: string | null, to: string | undefined) => {
     if (to === 'myclassroom') {
       const selectedActivity = list.filter((item) => item.id === id);
       setActivityToShow(selectedActivity[0].content);

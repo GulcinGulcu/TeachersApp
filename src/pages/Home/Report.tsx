@@ -1,14 +1,18 @@
 import { reportData } from './reportData';
 import { Card } from '../../components/Card';
 import { useSelector } from 'react-redux';
+import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
+import { selectorList } from '../../features/List/listSlicer';
+import { StudentData } from '../../features/Student/models';
+import { selectorStudent } from '../../features/Student/studentSlicer';
 
 export const Report = () => {
-  const student = useSelector((state) => state.student);
-  const { isDarkMode } = useSelector((state) => state.darkMode);
-  const list = useSelector((state) => state.list);
+  const student = useSelector(selectorStudent);
+  const { isDarkMode } = useSelector(selectorDarkMode);
+  const list = useSelector(selectorList);
   const assignments = list.filter((item) => item.type === 'Assignment');
   const announcements = list.filter((item) => item.type === 'Announcement');
-  const classes = [];
+  const classes: string[] = [];
   student.forEach((stu) => {
     if (!classes.includes(stu.grade)) {
       classes.push(stu.grade);
@@ -37,7 +41,6 @@ export const Report = () => {
                 {report.icon}
               </span>
               <span className='home__report-title'>{report.title}</span>
-              <span>{report.number}</span>
               <span>{reportNumbers[report.id - 1]}</span>
             </Card>
           );

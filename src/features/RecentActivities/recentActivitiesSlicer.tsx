@@ -4,12 +4,12 @@ import { RecentActivitiesSliceState } from './models';
 
 const initialState = [
   {
-    id: 1,
+    id: '1',
     title: 'You logged in',
     date: sub(new Date(), { days: 7 }).toISOString(),
   },
   {
-    id: 2,
+    id: '2',
     title: 'You logged in',
     date: sub(new Date(), { days: 15 }).toISOString(),
   },

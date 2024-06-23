@@ -7,11 +7,12 @@ import { useSelector } from 'react-redux';
 import TeacherImage from '../../assets/teacherphoto.png';
 import { Report } from './Report';
 import { RecentActivities } from './RecentActivities';
+import { selectorUser } from '../../features/User/userSlice';
 import './styles.css';
 
 export const Home = () => {
   const [index, setIndex] = useState(0);
-  const user = useSelector((state) => state.user);
+  const user = useSelector(selectorUser);
 
   const handleNextText = () => {
     if (index < 2) {

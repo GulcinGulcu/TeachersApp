@@ -1,7 +1,8 @@
 interface RecentActivities {
-  id: number;
+  id: string;
   title: string;
   date: string;
+  to?: string;
 }
 
 export interface RecentActivitiesSliceState {
