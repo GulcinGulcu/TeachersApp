@@ -1,7 +1,6 @@
 import { reportData } from './reportData';
 import { Card } from '../../components/Card';
 import { useSelector } from 'react-redux';
-import { GoPlus } from 'react-icons/go';
 
 export const Report = () => {
   const student = useSelector((state) => state.student);
