@@ -4,13 +4,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { formatISO } from 'date-fns';
 import { Switch, FormControlLabel } from '@mui/material';
 import { toggleDarkMode } from '../../features/DarkMode/darkModeSlicer';
+import { selectorUser } from '../../features/User/userSlice';
+import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
 import './styles.css';
 
 export const Header = () => {
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const { isLoggedIn } = useSelector(selectorUser);
   const dispatch = useDispatch();
   const date = formatISO(new Date(), { representation: 'date' });
-  const { isDarkMode } = useSelector((state) => state.darkMode);
+  const { isDarkMode } = useSelector(selectorDarkMode);
   const { pathname } = useLocation();
 
   return (

@@ -2,7 +2,12 @@ import { Link } from 'react-router-dom';
 import { TiTick } from 'react-icons/ti';
 import './styles.css';
 
-export const Confirm = ({ children, linkName }) => {
+interface ConfirmProps {
+  children: React.ReactNode;
+  linkName: string;
+}
+
+export const Confirm = ({ children, linkName }: ConfirmProps) => {
   return (
     <div className='confirm'>
       <h4>

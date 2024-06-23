@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User, UserSliceState } from './models';
 
-export const userLoggedIn = {
+export const userLoggedIn: User = {
   isLoggedIn: false,
   username: '',
   fullName: '',
@@ -34,5 +35,7 @@ export const userSlice = createSlice({
 });
 
 export const { login, logout, updateUser, registerUser } = userSlice.actions;
+
+export const selectorUser = (state: UserSliceState) => state.user;
 
 export default userSlice.reducer;

@@ -1,9 +1,14 @@
 import teacherPhoto from '../../assets/user8.jpg';
 import Logo from '../../assets/logo.png';
 import { useSelector } from 'react-redux';
+import { selectorUser } from '../../features/User/userSlice';
 
-export const UserInfo = ({ username }) => {
-  const { isLoggedIn } = useSelector((state) => state.user);
+interface UserInfoProps {
+  username: string;
+}
+
+export const UserInfo = ({ username }: UserInfoProps) => {
+  const { isLoggedIn } = useSelector(selectorUser);
 
   return (
     <div className='user-info'>

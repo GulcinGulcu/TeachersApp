@@ -5,15 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoIosLogOut, IoIosLogIn } from 'react-icons/io';
 import { logout } from '../../features/User/userSlice';
 import { Link, useLocation } from 'react-router-dom';
+import { selectorUser } from '../../features/User/userSlice';
 import './styles.css';
 
 export const SideBar = () => {
-  const { username, isLoggedIn } = useSelector((state) => state.user);
+  const { username, isLoggedIn } = useSelector(selectorUser);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
   return (
     <aside
+      data-testid='sidebar'
       className={
         !isLoggedIn && pathname === '/'
           ? 'sidebar-wrapper sidebar-wrapper--logout'
@@ -24,7 +26,7 @@ export const SideBar = () => {
       <ul className='sidebar__links'>
         {sideBarData.map((item) => (
           <SideBarListItem
-            key={item.key}
+            key={item.id}
             to={item.to}
             title={item.title}
             className={item.className}

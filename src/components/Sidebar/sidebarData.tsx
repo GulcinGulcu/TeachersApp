@@ -3,8 +3,17 @@ import { MdMenuBook } from 'react-icons/md';
 import { FaChalkboard } from 'react-icons/fa';
 import { FaPeopleLine } from 'react-icons/fa6';
 import { MdHomeFilled } from 'react-icons/md';
+import { ReactNode } from 'react';
 
-export const sideBarData = [
+interface SideBarData {
+  id: number;
+  title: string;
+  icon: ReactNode;
+  className: string;
+  to: string;
+}
+
+export const sideBarData: SideBarData[] = [
   {
     id: 1,
     title: 'Home',

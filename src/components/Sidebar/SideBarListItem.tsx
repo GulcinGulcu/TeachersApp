@@ -1,6 +1,18 @@
 import { NavLink } from 'react-router-dom';
 
-export const SideBarListItem = ({ className, title, to, icon }) => {
+interface SideBarListItemProps {
+  className: string;
+  title: string;
+  to: string;
+  icon: React.ReactNode;
+}
+
+export const SideBarListItem = ({
+  className,
+  title,
+  to,
+  icon,
+}: SideBarListItemProps) => {
   return (
     <li>
       <NavLink

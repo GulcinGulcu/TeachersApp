@@ -1,8 +1,9 @@
 import { Outlet, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { selectorUser } from '../../features/User/userSlice';
 
 export const AuthRequired = () => {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(selectorUser);
   const location = useLocation();
 
   if (!user.isLoggedIn) {
