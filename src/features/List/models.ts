@@ -1,7 +1,7 @@
 export interface ListData {
   content: string;
   type: string;
-  id: number;
+  id: string;
   date: {
     month: string;
     day: string;

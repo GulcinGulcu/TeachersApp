@@ -6,16 +6,24 @@ import { useEffect, useRef, useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { editItem } from '../../features/List/listSlicer';
 import { FaCheck } from 'react-icons/fa';
+import { ListData, ListSliceState } from '../../features/List/models';
+import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
 
-export const List = ({ list, handleDelete, typeFilter }) => {
+interface ListProps {
+  list: ListData[];
+  handleDelete: (arg: string) => void;
+  typeFilter: string | null;
+}
+
+export const List = ({ list, handleDelete, typeFilter }: ListProps) => {
   const dispatch = useDispatch();
   const [editItemId, setEditItemId] = useState('');
-  const itemList = useSelector((state) =>
+  const itemList = useSelector((state: ListSliceState) =>
     state.list.filter((item) => item.id === editItemId),
   );
-  const inputElement = useRef(null);
+  const inputElement = useRef<HTMLInputElement>(null);
   const [editedItem, setEditedItem] = useState('');
-  const { isDarkMode } = useSelector((state) => state.darkMode);
+  const { isDarkMode } = useSelector(selectorDarkMode);
 
   const displayedListItems = typeFilter
     ? list.filter((item) => item.type === typeFilter)
@@ -26,7 +34,7 @@ export const List = ({ list, handleDelete, typeFilter }) => {
     inputElement.current?.focus();
   }, [editItemId]);
 
-  const handleEdit = (id) => {
+  const handleEdit = (id: string) => {
     dispatch(editItem({ id, editedItem }));
     setEditItemId('');
   };

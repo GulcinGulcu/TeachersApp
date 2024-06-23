@@ -47,7 +47,7 @@ export const Classroom = () => {
     reset();
   };
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     dispatch(deleteItem(id));
     dispatch(deleteActivity(id));
   };
@@ -81,9 +81,7 @@ export const Classroom = () => {
             <option value='Assignment'>Assignment</option>
             <option value='Announcement'>Announcement</option>
           </select>
-          <Button className='classroom__submit-btn'>
-            Share
-          </Button>
+          <Button className='classroom__submit-btn'>Share</Button>
         </div>
       </form>
       <div className='classroom__timeline'>
@@ -116,10 +114,14 @@ export const Classroom = () => {
           {showFilterLinks && (
             <ul>
               <li>
-                <Button onClick={(e: React.SyntheticEvent) => handleFilter(e)}>Assignment</Button>
+                <Button onClick={(e: React.SyntheticEvent) => handleFilter(e)}>
+                  Assignment
+                </Button>
               </li>
               <li>
-                <Button onClick={(e: React.SyntheticEvent) => handleFilter(e)}>Announcement</Button>
+                <Button onClick={(e: React.SyntheticEvent) => handleFilter(e)}>
+                  Announcement
+                </Button>
               </li>
             </ul>
           )}
