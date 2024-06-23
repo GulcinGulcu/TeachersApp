@@ -1,4 +1,4 @@
-export interface User {
+interface User {
     isLoggedIn: boolean;
     username: string;
     fullName: string;

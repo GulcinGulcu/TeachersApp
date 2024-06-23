@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User, UserSliceState } from './models';
+import { UserSliceState } from './models';
 
-export const userLoggedIn: User = {
+export const userLoggedIn = {
   isLoggedIn: false,
   username: '',
   fullName: '',

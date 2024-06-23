@@ -1,4 +1,4 @@
-export interface DarkMode {
+interface DarkMode {
     isDarkMode: boolean;
 }
 

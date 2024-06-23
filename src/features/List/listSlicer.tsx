@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { listData } from './listData';
+import { ListSliceState } from './models';
 
 export const listSlice = createSlice({
   name: 'list',
@@ -28,4 +29,5 @@ export const listSlice = createSlice({
 });
 
 export const { addItem, deleteItem, editItem } = listSlice.actions;
+export const selectorList = (state: ListSliceState) => state.list;
 export default listSlice.reducer;

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { sub } from 'date-fns';
+import { RecentActivitiesSliceState } from './models';
 
 const initialState = [
   {
@@ -28,4 +29,6 @@ export const recentActivitiesSlice = createSlice({
 });
 
 export const { addActivity, deleteActivity } = recentActivitiesSlice.actions;
+export const selectorRecentActivities = (state: RecentActivitiesSliceState) =>
+  state.recentActivities;
 export default recentActivitiesSlice.reducer;

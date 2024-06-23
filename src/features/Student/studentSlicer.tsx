@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { studentData } from './studentData';
+import { StudentSlicerState } from './models';
 
 export const studentSlice = createSlice({
   name: 'student',
@@ -12,4 +13,5 @@ export const studentSlice = createSlice({
 });
 
 export const { addStudent } = studentSlice.actions;
+export const selectorStudent = (state: StudentSlicerState) => state.student;
 export default studentSlice.reducer;

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { DarkMode, DarkModeSliceState } from './models';
+import { DarkModeSliceState } from './models';
 
-const initialState: DarkMode = {
+const initialState = {
   isDarkMode: true,
 };
 

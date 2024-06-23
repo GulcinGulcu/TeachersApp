@@ -13,7 +13,9 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useState } from 'react';
 import { Confirm } from '../../components/Confirm';
+import { StudentDetail } from '../Students/StudentDetails/StudentDetail';
 import './styles.css';
+import { StudentData } from '../../features/Student/models';
 
 export const AddStudent = () => {
   const [confirmMessage, setConfirmMessage] = useState(false);
@@ -23,9 +25,9 @@ export const AddStudent = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<StudentData>();
 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = (data: StudentData) => {
     const id = nanoid();
     const finalData = { ...data, id: id, image: userIcon };
     dispatch(addStudent(finalData));
@@ -145,11 +147,6 @@ export const AddStudent = () => {
                 control={<Radio />}
                 label='Spanish'
                 {...register('selectiveLesson')}
-                error={!!errors.selectiveLesson}
-                helperText={
-                  errors.selectiveLesson &&
-                  "Please select student's selective lesson"
-                }
               />
               <FormControlLabel
                 value='Italian'
@@ -236,9 +233,7 @@ export const AddStudent = () => {
           />
         </div>
       </div>
-      <Button className='form-btn--submit add-student-btn' type='submit'>
-        Add Student
-      </Button>
+      <Button className='form-btn--submit add-student-btn'>Add Student</Button>
     </form>
   );
 };
