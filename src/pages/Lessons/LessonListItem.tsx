@@ -1,3 +1,12 @@
+interface LessonListItemProps {
+  title: string;
+  id: string;
+  handleClick: (arg: React.SyntheticEvent, arg2: string) => void;
+  icon: React.ReactNode;
+  searchParam: string;
+  active: null | string;
+}
+
 export const LessonListItem = ({
   title,
   id,
@@ -5,7 +14,7 @@ export const LessonListItem = ({
   icon,
   searchParam,
   active,
-}) => {
+}: LessonListItemProps) => {
   return (
     <li
       className={active === id ? `lesson active` : 'lesson'}

@@ -119,7 +119,7 @@ export const Registration = () => {
           required: true,
         })}
         error={!!errors.password}
-        helperText={errors.password && 'Please enter full name'}
+        helperText={errors.password && 'Please enter a password'}
         InputProps={{
           endAdornment: (
             <InputAdornment position='end'>

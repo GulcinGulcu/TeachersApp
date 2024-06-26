@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import { lessonsData } from './lessonsData';
 import { LessonListItem } from './LessonListItem';
 import { Outlet, NavLink } from 'react-router-dom';
+import { VideoData } from './models';
 import './styles.css';
 
 export const Lessons = () => {
-  const [queryParam, setQueryParam] = useState('');
-  const [videos, setVideos] = useState(null);
-  const [nextPage, setNextPage] = useState(0);
+  const [queryParam, setQueryParam] = useState<string | null>('');
+  const [videos, setVideos] = useState<VideoData[]>([]);
+  const [nextPage, setNextPage] = useState<number>(0);
   const [nextPageTkn, setNextPageTkn] = useState('');
-  const [active, setActive] = useState(null);
-  const [savedVideoId, setSavedVideoId] = useState([]);
+  const [active, setActive] = useState<null | string>(null);
+  const [savedVideoId, setSavedVideoId] = useState<string[]>([]);
 
   useEffect(() => {
     if (queryParam !== '') {
@@ -36,9 +37,9 @@ export const Lessons = () => {
           .catch((err) => console.log(err));
       }
     }
-  }, [queryParam, nextPage, nextPageTkn]);
+  }, [queryParam, nextPage]);
 
-  const handleClick = (e, id) => {
+  const handleClick = (e: React.SyntheticEvent, id: string) => {
     setActive(id);
     const param = e.currentTarget.getAttribute('data-param');
     setQueryParam(param);
@@ -66,20 +67,20 @@ export const Lessons = () => {
           />
         ))}
       </ul>
-      {videos && (
+      {videos.length > 0 && (
         <nav>
           <NavLink
             to='.'
             end
             className='video-nav'
-            style={({ isActive }) => (isActive ? activeStyles : null)}
+            style={({ isActive }) => (isActive ? activeStyles : undefined)}
           >
             All Videos
           </NavLink>
           <NavLink
             to='savedVideos'
             className='video-nav'
-            style={({ isActive }) => (isActive ? activeStyles : null)}
+            style={({ isActive }) => (isActive ? activeStyles : undefined)}
           >
             Saved Videos
           </NavLink>

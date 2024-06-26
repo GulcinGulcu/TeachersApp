@@ -3,17 +3,20 @@ import { RxBookmark } from 'react-icons/rx';
 import { FaBookmark } from 'react-icons/fa';
 import { Button } from '../../components/Button';
 import { useSelector } from 'react-redux';
+import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
+import { ContextTypes } from './models';
 
 export const SavedVideos = () => {
-  const { videos, savedVideoId, setSavedVideoId } = useOutletContext();
+  const { videos, savedVideoId, setSavedVideoId } =
+    useOutletContext<ContextTypes>();
 
   const savedVideos = videos.filter((video) =>
     savedVideoId.includes(video.id.videoId),
   );
 
-  const { isDarkMode } = useSelector((state) => state.darkMode);
+  const { isDarkMode } = useSelector(selectorDarkMode);
 
-  const handleUnsaveVideo = (id) => {
+  const handleUnsaveVideo = (id: string) => {
     setSavedVideoId((prev) => prev.filter((videoId) => id !== videoId));
   };
 

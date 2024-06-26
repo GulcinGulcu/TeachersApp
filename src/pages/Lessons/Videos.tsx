@@ -4,16 +4,18 @@ import { FaBookmark } from 'react-icons/fa';
 import { Button } from '../../components/Button';
 import { decode } from 'html-entities';
 import { useSelector } from 'react-redux';
+import { ContextTypes } from './models';
+import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
 
 export const Videos = () => {
   const { videos, setSavedVideoId, setNextPage, savedVideoId } =
-    useOutletContext();
+    useOutletContext<ContextTypes>();
 
-  const { isDarkMode } = useSelector((state) => state.darkMode);
+  const { isDarkMode } = useSelector(selectorDarkMode);
 
   return (
     <>
-      {videos && (
+      {videos.length > 0 && (
         <section className='section__lesson'>
           <div className='lessons-video-wrapper'>
             {videos.map((video) => {
