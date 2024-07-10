@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '../../features/User/userSlice';
 import { Confirm } from '../../components/Confirm';
 import { useState } from 'react';
+import { User } from '../../features/User/models';
 
 export const Registration = () => {
   const EMAIL_PATTERN =
@@ -23,9 +24,9 @@ export const Registration = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<User>();
 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = (data: User) => {
     dispatch(registerUser(data));
     setConfirmMessage(true);
     reset();

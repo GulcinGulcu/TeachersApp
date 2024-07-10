@@ -10,11 +10,17 @@ import { FaUser } from 'react-icons/fa';
 import { PiLockKeyFill } from 'react-icons/pi';
 import { Button } from '../../components/Button';
 import { useState } from 'react';
+import { selectorUser } from '../../features/User/userSlice';
 import './styles.css';
+
+interface FormValues {
+  username: string;
+  password: string;
+}
 
 export const Login = () => {
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.user);
+  const userData = useSelector(selectorUser);
   const [failLogin, setFailLogin] = useState(false);
 
   const location = useLocation();
@@ -28,9 +34,9 @@ export const Login = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<FormValues>();
 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = (data: FormValues) => {
     if (
       data.password === userData.password &&
       data.username === userData.username

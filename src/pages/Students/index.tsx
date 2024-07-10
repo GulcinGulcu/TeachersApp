@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { selectorStudent } from '../../features/Student/studentSlicer';
+import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
 import './styles.css';
 
 export const StudentList = () => {
-  const studentData = useSelector((state) => state.student);
-  const { isDarkMode } = useSelector((state) => state.darkMode);
+  const studentData = useSelector(selectorStudent);
+  const { isDarkMode } = useSelector(selectorDarkMode);
 
   return (
     <section className='student-page-wrapper'>

@@ -13,9 +13,8 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useState } from 'react';
 import { Confirm } from '../../components/Confirm';
-import { StudentDetail } from '../Students/StudentDetails/StudentDetail';
-import './styles.css';
 import { StudentData } from '../../features/Student/models';
+import './styles.css';
 
 export const AddStudent = () => {
   const [confirmMessage, setConfirmMessage] = useState(false);
