@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { NavLink, useParams, Outlet, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FaArrowLeft } from 'react-icons/fa';
+import { selectorStudent } from '../../../features/Student/studentSlicer';
+import { StudentData } from '../../../features/Student/models';
 import './styles.css';
 
 export const StudentDetail = () => {
-  const studentData = useSelector((state) => state.student);
+  const studentData = useSelector(selectorStudent);
   const { id } = useParams();
-  const [studentDetail, setStudentDetail] = useState(null);
+  const [studentDetail, setStudentDetail] = useState<null | StudentData>(null);
   useEffect(() => {
     const student = studentData.filter((student) => student.id === id);
     setStudentDetail(student[0]);
@@ -41,21 +43,21 @@ export const StudentDetail = () => {
               to='.'
               end
               className='student-detail__link'
-              style={({ isActive }) => (isActive ? activeStyles : null)}
+              style={({ isActive }) => (isActive ? activeStyles : undefined)}
             >
               General Information
             </NavLink>
             <NavLink
               to='grades'
               className='student-detail__link'
-              style={({ isActive }) => (isActive ? activeStyles : null)}
+              style={({ isActive }) => (isActive ? activeStyles : undefined)}
             >
               Grades
             </NavLink>
             <NavLink
               to='other'
               className='student-detail__link'
-              style={({ isActive }) => (isActive ? activeStyles : null)}
+              style={({ isActive }) => (isActive ? activeStyles : undefined)}
             >
               Other
             </NavLink>

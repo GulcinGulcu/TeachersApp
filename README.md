@@ -1,12 +1,13 @@
 # About the project
 
-This project is made with React for serving as assistant for teachers. Teacher can share things with students, reach lesson videos, see his/her students' list and information, manage their work by using dashboard like seeing the recent activities or statistics about the overall information.
+This project is made with TypeScript and React for serving as assistant for teachers. Teacher can share things with students, reach lesson videos, see his/her students' list and information, manage their work by using dashboard like seeing the recent activities or statistics about the overall information.
 
 ## Functionality of the Project
 
 React Router for routing between the pages \
 State is managed by Redux \
 API Requests with fetch API \
+Youtube API \
 MUI is used
 
 # Getting Started with Create React App

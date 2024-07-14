@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
+import { selectorStudent } from '../../../features/Student/studentSlicer';
 import { useParams } from 'react-router-dom';
 
 export const GeneralInformation = () => {
   const { id } = useParams();
-  const student = useSelector((state) => state.student);
+  const student = useSelector(selectorStudent);
   const selectedStudent = student.filter((stu) => stu.id === id);
 
   return (

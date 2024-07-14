@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { selectorStudent } from '../../../features/Student/studentSlicer';
 
 export const Grades = () => {
   const { id } = useParams();
-  const student = useSelector((state) => state.student);
+  const student = useSelector(selectorStudent);
   const selectedStudent = student.filter((stu) => stu.id === id);
 
   return (
