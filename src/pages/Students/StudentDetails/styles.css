@@ -56,8 +56,16 @@
   margin-bottom: 2rem;
 }
 
+.go-back-btn-container {
+  width: 90%;
+  margin: auto
+}
+
 .go-back-btn {
   text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 @media all and (max-width: 786px) {

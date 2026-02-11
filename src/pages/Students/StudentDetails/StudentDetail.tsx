@@ -27,10 +27,12 @@ export const StudentDetail = () => {
     <>
       {studentDetail && (
         <div className='detail-container'>
-          <Link to='..' relative='path' className='go-back-btn'>
-            <FaArrowLeft />
-            <span>Back to all students</span>
-          </Link>
+          <div className='go-back-btn-container'>
+            <Link to='..' relative='path' className='go-back-btn'>
+              <FaArrowLeft />
+              <span>Back to all students</span>
+            </Link>
+          </div>
           <section className='avatar-container'>
             <img
               src={studentDetail.image}

@@ -10,7 +10,7 @@ export const StudentList = () => {
 
   return (
     <section className='student-page-wrapper'>
-      <div>
+      <div className='student-page-heading'>
         <h4>All Students</h4>
         <p>You can find all your students information</p>
       </div>

@@ -7,10 +7,9 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  padding: 5px 35px;
   margin-bottom: 15px;
-  background-color: #d0d5d8;
-  border-radius: 8px;
+  border-radius: 10px 10px 8px 8px;
+  margin-bottom: 25px;
 }
 
 .classroom__form > textarea {
@@ -20,7 +19,7 @@
   border-radius: 10px;
   width: 100%;
   font-family: inherit;
-  padding: 10px;
+  padding: 15px;
 }
 
 .classroom__list {
@@ -65,10 +64,10 @@
 }
 
 .select-and-btn-area {
-  padding: 15px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .select-and-btn-area > select {

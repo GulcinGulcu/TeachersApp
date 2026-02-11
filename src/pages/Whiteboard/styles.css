@@ -1,6 +1,6 @@
 .canvas-wrapper {
   max-width: calc(900px + 1rem);
-  width: 95%;
+  width: 90%;
   margin: auto;
   border: 0.5rem solid gray;
   border-radius: 8px;
@@ -27,8 +27,13 @@
   margin-top: 0.5rem;
 }
 
+.canvas__pen-color {
+  display: flex;
+  gap: 10px;
+}
 .canvas__btns {
-  width: 50%;
+  display: flex;
+  gap: 15px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -40,8 +45,6 @@
   letter-spacing: 1px;
   border-radius: 12px;
   padding: 0.5rem 1.5rem;
-  background-color: var(--color-darkModeSecondary);
-  color: var(--color-lightModeWhite);
   box-shadow: var(--box-shadow);
 }
 

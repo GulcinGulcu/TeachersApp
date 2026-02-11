@@ -17,6 +17,6 @@ export const listData = [
       'Complete all the quizzies and exercises on the book until next week. Check them online answerkey.',
     type: 'Assignment',
     id: '1',
-    date: { month: 'January', day: '20' },
+    date: { month: 'January', day: '8' },
   },
 ];

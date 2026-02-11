@@ -20,6 +20,12 @@ tr {
   padding: 2rem;
 }
 
+.student-page-heading {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
 .student-table {
   width: 90%;
   max-width: 1100px;
@@ -35,7 +41,7 @@ tr {
 }
 
 .student-table.dark > thead > tr {
-  border-top: 1px solid var(--color-lightModeSecondary);
+  border-top: 0.5px solid var(--color-lightModeSecondary);
 }
 
 .student-table.dark > thead > tr {

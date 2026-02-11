@@ -51,7 +51,7 @@ export const RecentActivities = () => {
                 key={activity.id}
               >
                 <div className='list-item-activity'>
-                  <span>
+                  <span className='list-item-left'>
                     {active && activeId === activity.id ? (
                       <SlArrowDown />
                     ) : (
@@ -59,8 +59,8 @@ export const RecentActivities = () => {
                     )}
                     {activity.title}
                   </span>
-                  <span>
-                    <IoIosTimer /> <TimeAgo time={activity.date} />
+                  <span className='list-item-right'>
+                    <TimeAgo time={activity.date} /> <IoIosTimer />
                   </span>
                 </div>
                 <div>
