@@ -1,6 +1,8 @@
 import TextField from '@mui/material/TextField';
 import { Button } from '../../components/Button';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
+import { addActivity } from '../../features/RecentActivities/recentActivitiesSlicer';
+import { nanoid } from '@reduxjs/toolkit';
 import { useForm } from 'react-hook-form';
 import { InputAdornment } from '@mui/material';
 import { FaUser } from 'react-icons/fa';
@@ -28,6 +30,13 @@ export const Registration = () => {
 
   const onFormSubmit = (data: User) => {
     dispatch(registerUser(data));
+    dispatch(
+      addActivity({
+        id: nanoid(),
+        title: 'You registered and logged in.',
+        date: new Date().toISOString(),
+      }),
+    );
     setConfirmMessage(true);
     reset();
   };

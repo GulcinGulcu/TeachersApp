@@ -5,12 +5,12 @@ import { RecentActivitiesSliceState } from './models';
 const initialState = [
   {
     id: '1',
-    title: 'You logged in.',
+    title: 'Classroom "Math 101" created.',
     date: sub(new Date(), { days: 7 }).toISOString(),
   },
   {
     id: '2',
-    title: 'You logged in.',
+    title: 'Demo: Assignment shared.',
     date: sub(new Date(), { days: 15 }).toISOString(),
   },
 ];
