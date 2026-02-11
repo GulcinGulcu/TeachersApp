@@ -1,7 +1,7 @@
 interface LessonListItemProps {
   title: string;
   id: string;
-  handleClick: (arg: React.SyntheticEvent, arg2: string) => void;
+  handleClick: (arg: React.MouseEvent<HTMLLIElement>, arg2: string) => void;
   icon: React.ReactNode;
   searchParam: string;
   active: null | string;

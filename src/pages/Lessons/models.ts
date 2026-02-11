@@ -37,6 +37,7 @@ export interface VideoData {
 export interface ContextTypes {
   videos: VideoData[];
   savedVideoId: string[];
+  nextPageTkn: string;
   setSavedVideoId: (
     arg: string[] | ((prevState: string[]) => string[]),
   ) => void;

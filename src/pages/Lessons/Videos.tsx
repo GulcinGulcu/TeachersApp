@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { ContextTypes } from './models';
 import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
 
-export const Videos = () => {
+export const Videos = ({ nextPageTkn }: { nextPageTkn: string }) => {
   const { videos, setSavedVideoId, setNextPage, savedVideoId } =
     useOutletContext<ContextTypes>();
 
@@ -47,7 +47,11 @@ export const Videos = () => {
                         : 'lessons__save-btn'
                     }
                     onClick={() =>
-                      setSavedVideoId((prev) => [...prev, video.id.videoId])
+                      setSavedVideoId((prev) =>
+                        prev.includes(video.id.videoId)
+                          ? prev.filter((x) => x !== video.id.videoId)
+                          : [...prev, video.id.videoId],
+                      )
                     }
                   >
                     {savedVideoId.includes(video.id.videoId) ? (
@@ -63,6 +67,7 @@ export const Videos = () => {
           <Button
             className='show-more-btn'
             onClick={() => setNextPage((prev) => prev + 1)}
+            disabled={!nextPageTkn}
           >
             Show More
           </Button>

@@ -6,44 +6,49 @@ import { VideoData } from './models';
 import './styles.css';
 
 export const Lessons = () => {
-  const [queryParam, setQueryParam] = useState<string | null>('');
+  const [queryParam, setQueryParam] = useState('');
   const [videos, setVideos] = useState<VideoData[]>([]);
-  const [nextPage, setNextPage] = useState<number>(0);
+  const [nextPage, setNextPage] = useState(0);
   const [nextPageTkn, setNextPageTkn] = useState('');
   const [active, setActive] = useState<null | string>(null);
   const [savedVideoId, setSavedVideoId] = useState<string[]>([]);
 
   useEffect(() => {
-    if (queryParam !== '') {
-      if (nextPage) {
-        fetch(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=9&q=${queryParam}&key=${process.env.REACT_APP_API_KEY}&pageToken=${nextPageTkn}`,
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setNextPageTkn(data.nextPageToken);
-            setVideos((prev) => [...prev, ...data.items]);
-          })
-          .catch((err) => console.log(err));
-      } else {
-        fetch(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=9&q=${queryParam}&key=${process.env.REACT_APP_API_KEY}`,
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setNextPageTkn(data.nextPageToken);
-            setVideos(data.items);
-          })
-          .catch((err) => console.log(err));
-      }
-    }
-  }, [queryParam, nextPage]);
+    if (nextPage && !nextPageTkn) return;
+    if (!queryParam.trim()) return;
 
-  const handleClick = (e: React.SyntheticEvent, id: string) => {
+    const params = new URLSearchParams({
+      part: 'snippet',
+      maxResults: '9',
+      q: queryParam,
+      key: process.env.REACT_APP_API_KEY ?? '',
+    });
+
+    if (nextPage && nextPageTkn) params.set('pageToken', nextPageTkn);
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`)
+      .then(async (res) => {
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data?.error?.message || 'YouTube request failed');
+        }
+        return data;
+      })
+      .then((data) => {
+        setNextPageTkn(data.nextPageToken ?? '');
+        setVideos((prev) =>
+          nextPage ? [...prev, ...(data.items ?? [])] : data.items ?? [],
+        );
+      })
+      .catch((err) => console.log(err));
+  }, [queryParam, nextPage, nextPageTkn]);
+
+  const handleClick = (e: React.MouseEvent<HTMLLIElement>, id: string) => {
     setActive(id);
-    const param = e.currentTarget.getAttribute('data-param');
+    const param = e.currentTarget.getAttribute('data-param') ?? '';
     setQueryParam(param);
     setNextPage(0);
+    setNextPageTkn('');
     setVideos([]);
   };
 
@@ -67,6 +72,7 @@ export const Lessons = () => {
           />
         ))}
       </ul>
+
       {videos.length > 0 && (
         <nav>
           <NavLink
@@ -86,8 +92,15 @@ export const Lessons = () => {
           </NavLink>
         </nav>
       )}
+
       <Outlet
-        context={{ videos, savedVideoId, setSavedVideoId, setNextPage }}
+        context={{
+          videos,
+          savedVideoId,
+          setSavedVideoId,
+          setNextPage,
+          nextPageTkn,
+        }}
       />
     </div>
   );

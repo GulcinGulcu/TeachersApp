@@ -2,6 +2,7 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   onClick?: (arg: React.SyntheticEvent) => void;
+  disabled?: boolean;
 }
 
 export const Button = ({

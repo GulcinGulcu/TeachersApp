@@ -18,9 +18,10 @@ interface ListProps {
 export const List = ({ list, handleDelete, typeFilter }: ListProps) => {
   const dispatch = useDispatch();
   const [editItemId, setEditItemId] = useState('');
-  const itemList = useSelector((state: ListSliceState) =>
-    state.list.filter((item) => item.id === editItemId),
+  const editedItemFromStore = useSelector((state: ListSliceState) =>
+    state.list.find((item) => item.id === editItemId),
   );
+
   const inputElement = useRef<HTMLInputElement>(null);
   const [editedItem, setEditedItem] = useState('');
   const { isDarkMode } = useSelector(selectorDarkMode);
@@ -30,9 +31,9 @@ export const List = ({ list, handleDelete, typeFilter }: ListProps) => {
     : list;
 
   useEffect(() => {
-    setEditedItem(itemList[0]?.content);
+    setEditedItem(editedItemFromStore?.content ?? '');
     inputElement.current?.focus();
-  }, [editItemId]);
+  }, [editedItemFromStore]);
 
   const handleEdit = (id: string) => {
     dispatch(editItem({ id, editedItem }));
