@@ -46,13 +46,16 @@ export const Videos = () => {
                         ? 'lessons__save-btn dark'
                         : 'lessons__save-btn'
                     }
-                    onClick={() =>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+
                       setSavedVideoId((prev) =>
                         prev.includes(video.id.videoId)
                           ? prev.filter((x) => x !== video.id.videoId)
                           : [...prev, video.id.videoId],
-                      )
-                    }
+                      );
+                    }}
                   >
                     {savedVideoId.includes(video.id.videoId) ? (
                       <FaBookmark />
