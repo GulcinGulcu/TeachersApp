@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { lessonsData } from './lessonsData';
 import { LessonListItem } from './LessonListItem';
 import { Outlet, NavLink } from 'react-router-dom';
@@ -14,7 +14,6 @@ export const Lessons = () => {
   const [savedVideoId, setSavedVideoId] = useState<string[]>([]);
 
   useEffect(() => {
-    if (nextPage && !nextPageTkn) return;
     if (!queryParam.trim()) return;
 
     const params = new URLSearchParams({
@@ -24,24 +23,45 @@ export const Lessons = () => {
       key: process.env.REACT_APP_API_KEY ?? '',
     });
 
-    if (nextPage && nextPageTkn) params.set('pageToken', nextPageTkn);
+    fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`)
+      .then((r) => r.json())
+      .then((data) => {
+        setVideos(data.items ?? []);
+        setNextPageTkn(data.nextPageToken ?? '');
+        setNextPage(0);
+      })
+      .catch(console.log);
+  }, [queryParam]);
+
+  const tokenRef = useRef('');
+
+  useEffect(() => {
+    tokenRef.current = nextPageTkn;
+  }, [nextPageTkn]);
+
+  useEffect(() => {
+    if (!queryParam.trim()) return;
+    if (nextPage === 0) return;
+
+    const token = tokenRef.current;
+    if (!token) return;
+
+    const params = new URLSearchParams({
+      part: 'snippet',
+      maxResults: '9',
+      q: queryParam,
+      key: process.env.REACT_APP_API_KEY ?? '',
+      pageToken: token,
+    });
 
     fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`)
-      .then(async (res) => {
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data?.error?.message || 'YouTube request failed');
-        }
-        return data;
-      })
+      .then((r) => r.json())
       .then((data) => {
         setNextPageTkn(data.nextPageToken ?? '');
-        setVideos((prev) =>
-          nextPage ? [...prev, ...(data.items ?? [])] : data.items ?? [],
-        );
+        setVideos((prev) => [...prev, ...(data.items ?? [])]);
       })
-      .catch((err) => console.log(err));
-  }, [queryParam, nextPage, nextPageTkn]);
+      .catch(console.log);
+  }, [nextPage, queryParam]);
 
   const handleClick = (e: React.MouseEvent<HTMLLIElement>, id: string) => {
     setActive(id);
