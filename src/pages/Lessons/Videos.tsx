@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 import { ContextTypes } from './models';
 import { selectorDarkMode } from '../../features/DarkMode/darkModeSlicer';
 
-export const Videos = ({ nextPageTkn }: { nextPageTkn: string }) => {
-  const { videos, setSavedVideoId, setNextPage, savedVideoId } =
+export const Videos = () => {
+  const { videos, setSavedVideoId, setNextPage, savedVideoId, nextPageTkn } =
     useOutletContext<ContextTypes>();
 
   const { isDarkMode } = useSelector(selectorDarkMode);
