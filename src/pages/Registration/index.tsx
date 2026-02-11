@@ -34,7 +34,7 @@ export const Registration = () => {
 
   if (confirmMessage) {
     return (
-      <Confirm linkName='Login'>
+      <Confirm linkName='Home'>
         You have successfully registered the teachers' platform!
       </Confirm>
     );

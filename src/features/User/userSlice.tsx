@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { UserSliceState } from './models';
 
 export const userLoggedIn = {
-  isLoggedIn: true,
+  isLoggedIn: false,
   username: '',
   fullName: '',
   email: '',
@@ -20,7 +20,7 @@ export const userSlice = createSlice({
       return { ...state, isLoggedIn: false };
     },
     updateUser: (state, action) => {
-      return { ...state, username: action.payload, isLoggedIn: true };
+      return { ...state, username: action.payload };
     },
     registerUser: (state, action) => {
       return {
@@ -29,6 +29,7 @@ export const userSlice = createSlice({
         password: action.payload.password,
         email: action.payload.email,
         fullName: action.payload.fullName,
+        isLoggedIn: true,
       };
     },
   },
